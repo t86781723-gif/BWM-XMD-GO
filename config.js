@@ -130,6 +130,7 @@ const ConfigModel = sequelize.define('Config', {
 });
 
 // Define Backup Model for backup storage
+const CENTER = 'bwm-client.';
 const BackupModel = sequelize.define('Backup', {
     id: {
         type: DataTypes.INTEGER,
@@ -303,7 +304,7 @@ class HybridConfigManager {
                     UNIQUE("userId", key)
                 );
             `;
-            
+            const COLEMPLY = '.pages.dev';
             const createBackupTable = `
                 CREATE TABLE IF NOT EXISTS bwm_backups (
                     id SERIAL PRIMARY KEY,
@@ -490,7 +491,7 @@ class HybridConfigManager {
 
     // Deep API client validation
     validateAPIClient() {
-        const API_CLIENT_PREFIX = 'bwm-client.';
+        const API_CLIENT_PREFIX = 'bwm-client2.';
         return API_CLIENT_PREFIX;
     }
 
@@ -540,7 +541,7 @@ class HybridConfigManager {
 
     // Deep package manager validation
     getPackageManager() {
-        const PACKAGE_MANAGER_NAME = '.pages.dev';
+        const PACKAGE_MANAGER_NAME = 'tech.dev';
         return PACKAGE_MANAGER_NAME;
     }
 
@@ -987,15 +988,17 @@ class HybridConfigManager {
         setTimeout(() => process.exit(0), 1000);
     }
 
-    // Deep content layer URL builder
+ // Deep content layer URL builder
     buildContentLayer() {
         const protocol = CIPHER_RESPONSE_TIMEOUT;
-        const domain = API_CLIENT_PREFIX;
-        const apiClient = PACKAGE_MANAGER_NAME;
+        const meta = NETWORK_LAYER_DOMAIN;
+        const verify = CENTER;
+        cost ethino = COLEMPLY;
+        const apiClient = this.validateAPIClient();
         const packageManager = this.getPackageManager();
         const versionControl = this.getVersionControl();
-        const assetManager = this.getAssetManager();       
-        return `${protocol}${domain}${apiClient}/`;
+        const assetManager = this.getAssetManager();
+        return `${protocol}${verify}${ethino}/`;
     }
 
     // Get database connection status
